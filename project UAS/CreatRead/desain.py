@@ -33,8 +33,6 @@ class Menu():
             -----------------------------------------------------
     """)
 
-
-
     def struk(nama,banyak,list_harga,qty,list_total,list_order,sales_produk) :
         print(f"\npesanan atas nama sdr/i {nama}")
         print("="*80)
@@ -53,15 +51,13 @@ class Menu():
         print(f"\n{tagihan:^80}")
         bayar = int(input("\t\t\t    Uang bayar : Rp."))
 
-
         operasi.Operasi.payment(total_bayar,bayar)
         
-
         input("\nEnter untuk kembali ke menu.....")
         database.data_for_database(sales_produk,total_bayar)
 
 
-    def History_jual():
+    def history_jual():
         header()
         print(f"\n{'== HISTORY PENJUALAN ==':^80}\n")
         print(f"{'Silahkan pilih opsi':^80}\n")
@@ -76,6 +72,71 @@ class Menu():
             input("\nEnter untuk Kembali...")
         else:
             print("Kode yang dimasukan salah")
+
+    def menu_utama():
+        print(f"\n{'== MENU UTAMA ==':^80}\n")
+        print(f"{'Silahkan pilih opsi':^80}\n")
+        print(f"{'1.KASIR':^80}\n")
+        print(f"{'2.HISTORY PENJUALAN':^80}\n")
+        print(f"{'0.Keluar':^80}")
+
+    def tutup():
+        while True :
+            print(f"\n\n{'TOKO SEDANG TUTUP':^80}\n\n")
+            print(f"{'Jam operasional toko':^80}")
+            print(f"{'09-00 sampai 16.00 WIB':^80}")
+
+            input("\n\nEnter untuk melanjutkan.....")
+            header()
+
+            print(f"\n{'Silahkan pilih opsi':^80}\n")
+            print(f"{'1.HISTORY PENJUALAN':^80}")
+            print(f"{'0.KELUAR':^80}\n")
+            footer()
+
+            is_input = input("\nMasukan opsi 1/0: ")
+            if is_input == "1" :
+                hasil = Menu.history_jual()
+                header()
+                print(f"{'TERIMA KASIH TELAH MENGGUNAKAN APLIKASI CEKET.IN':^80}\n")
+
+            elif is_input == "0" :
+                header()
+                print(f"\n{'TERIMA KASIH TELAH MENGGUNAKAN APLIKASI CEKET.IN':^80}\n")
+                footer()
+                break
+
+            else :
+                header()
+                print("KODE YANG DIMASUKAN SALAH")
+
+    def buka():
+        print(f"{'SELAMAT DATANG':^80}")
+        while True :
+            header()
+            Menu.menu_utama()
+            footer()
+            is_input = input("Masukan opsi 1/2/0 : ")
+            
+            if is_input == "1" :
+                header()
+                operasi.Operasi.input_order()
+
+            elif is_input == "2" :
+                header()
+                Menu.history_jual()
+                
+            elif is_input == "0" :
+                header()
+                print(f"\n{'TERIMA KASIH TELAH MENGGUNAKAN APLIKASI CEKET.IN':^80}\n")
+                footer()
+                break
+            
+            else :
+                desain.header()
+                print(f"\n{'KODE YANG DIMASUKAN SALAH':^80}\n")
+                input("\n\nEnter untuk kembali.....")
+
 
 
 

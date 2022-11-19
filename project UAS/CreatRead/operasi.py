@@ -8,15 +8,14 @@ class Operasi():
         return list_minuman[index-1]
 
     def input_order():
-        nama_pembeli = input("Orderan atas Nama : ")
-        banyak = int(input("Banyak pesanan \t  : "))
-
         list_order = []
         list_harga   = [5000,5000,5000,8000,8000,10000]
         list_total = []
         qty = []
-
         sales_produk = 0
+
+        nama_pembeli = input("Orderan atas Nama : ")
+        banyak = int(input("Banyak pesanan \t  : "))
 
         for x in range(banyak):
             desain.Menu.menu()
@@ -46,6 +45,7 @@ class Operasi():
             return database.hari_ini
 
         elif is_pilih == "2" :
+            desain.header()
             print("\nSilahkan isi format tanggal ")
             tahun   = input("Tahun   : ")
             bulan   = input("Bulan   : ")
